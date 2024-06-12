@@ -22,7 +22,7 @@ export default function CardEvent({ data, title, subTitle }) {
                       {ticket.statusTicketCategories
                         ? ticket.price === 0
                           ? "free"
-                          : `$ ${ticket.price}`
+                          : `Rp. ${ticket.price}`
                         : ""}
                     </div>
                   ))}

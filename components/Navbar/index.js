@@ -8,24 +8,37 @@ import Cookies from "js-cookie";
 export default function Navbar() {
   const router = useRouter();
   const [token, setToken] = useState("");
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    return setToken(Cookies.get("token"));
+  const [username, setUsername] = useState({
+    firstName: "",
+    lastName: "",
   });
 
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("user"));
+    setUsername({
+      firstName: data?.firstName,
+      lastName: data?.lastName,
+    });
+    setToken(Cookies.get("token"));
+  }, []);
+
   const handleLogout = () => {
-    console.log("click");
     Cookies.remove("token");
+    setToken(""); // Perbarui state token setelah logout
     router.push("/");
   };
 
   return (
     <nav className="container navbar navbar-expand-lg navbar-dark">
       <div className="container-fluid">
-        <Link href={"/"} className="navbar-brand">
-          <img src="/images/logo.svg" alt="semina" />
-        </Link>
+        <NavLink href={"/"} className="navbar-brand">
+          <img
+            src="/images/artistryagora.png"
+            alt="artistry agora"
+            width="150"
+            height="100"
+          />
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -42,12 +55,7 @@ export default function Navbar() {
             className={`navbar-nav ${
               router.pathname !== "/signin" ? "mx-auto" : "ms-auto"
             } my-3 my-lg-0`}
-          >
-            <NavLink href={"/"}>Home</NavLink>
-            <NavLink href={"/browse"}>Browse</NavLink>
-            <NavLink href={"/stories"}>Stories</NavLink>
-            <NavLink href={"/about"}>About</NavLink>
-          </div>
+          ></div>
 
           {router.pathname !== "/signin" && (
             <>
@@ -55,7 +63,7 @@ export default function Navbar() {
                 <div className="navbar-nav ms-auto">
                   <div className="nav-item dropdown d-flex flex-column flex-lg-row align-items-lg-center authenticated gap-3">
                     <span className="text-light d-none d-lg-block">
-                      Hello, Shayna M
+                      Hello, {`${username.firstName} ${username.lastName}`}
                     </span>
 
                     <a
@@ -89,40 +97,20 @@ export default function Navbar() {
                           Dashboard
                         </Link>
                       </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Settings
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Rewards
-                        </a>
-                      </li>
-                      <li onClick={() => handleLogout()}>
-                        <a className="dropdown-item">Sign Out</a>
+                      <li onClick={handleLogout}>
+                        <a className="dropdown-item">Logout</a>
                       </li>
                     </ul>
 
                     <div className="collapse" id="collapseExample">
                       <ul className="list-group">
                         <li>
-                          <a className="list-group-item" href="#">
+                          <Link className="list-group-item" href="#">
                             Dashboard
-                          </a>
+                          </Link>
                         </li>
-                        <li>
-                          <a className="list-group-item" href="#">
-                            Settings
-                          </a>
-                        </li>
-                        <li>
-                          <a className="list-group-item" href="#">
-                            Rewards
-                          </a>
-                        </li>
-                        <li onClick={() => handleLogout()}>
-                          <a className="list-group-item"></a>
+                        <li onClick={handleLogout}>
+                          <a className="list-group-item">Logout</a>
                         </li>
                       </ul>
                     </div>

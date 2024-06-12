@@ -6,18 +6,18 @@ export default function Hero() {
     <>
       <div className="hero">
         <div className="hero-headline">
-          Expand Your <span className="text-gradient-blue">Knowledge</span>{" "}
+          Perluas <span className="text-gradient-blue">Pengetahuan Anda</span>{" "}
           <br className="d-none d-lg-block" />
-          by <span className="text-gradient-pink">Joining</span> Our Greatest
-          Events
+          dengan <span className="text-gradient-pink">Bergabung</span> di Acara
+          Terhebat Kami
         </div>
         <p className="hero-paragraph">
-          Kami menyediakan berbagai acara terbaik untuk membantu{" "}
+          Kami menyediakan berbagai event pameran seni terbaik untuk membantu{" "}
           <br className="d-none d-lg-block" />
-          anda dalam meningkatkan skills di bidang teknologi
+          anda dalam meningkatkan kreativitas di bidang seni.
         </p>
         <a href="#grow-today" className="btn-green">
-          Browse Now
+          Check Events
         </a>
       </div>
 

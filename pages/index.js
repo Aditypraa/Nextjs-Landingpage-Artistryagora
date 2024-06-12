@@ -7,7 +7,7 @@ import Stories from "@/components/Stories";
 import { getData } from "@/utils/fetchData";
 import Head from "next/head";
 
-export default function Home({ data }) {
+export default function index({ data }) {
   // console.log("data");
   // console.log(data);
   return (
@@ -20,7 +20,7 @@ export default function Home({ data }) {
 
       <Header />
       <Brand />
-      <CardEvent data={data} title="Featured Events" subTitle="Grow Today" />
+      <CardEvent data={data} title="Daftar Pameran" subTitle="Kesenian" />
       <Stories />
       <Statistics />
       <Footer />

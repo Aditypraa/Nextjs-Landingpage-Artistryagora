@@ -6,13 +6,19 @@ export default function Footer() {
     <footer className="footer bg-navy">
       <div className="container">
         <a href="index.html">
-          <img src="/images/logo.svg" alt="semina" />
+          <img
+            src="/images/artistryagora.png"
+            alt="artistry agora"
+            width="150"
+            height="100"
+          />
         </a>
         <div className="mt-3 d-flex flex-row flex-wrap footer-content align-items-baseline">
           <p className="paragraph">
-            Semina adalah tempat di mana <br className="d-md-block d-none" />{" "}
-            anda dapat mencari event sesuai <br className="d-md-block d-none" />{" "}
-            dengan minat & terdekat.
+            Artistry Agora adalah sebuah Kumpulan Karya Seni{" "}
+            <br className="d-md-block d-none" /> yang menampilkan keahlian dan
+            karya seni <br className="d-md-block d-none" /> dari berbagai
+            seniman di suatu tempat
           </p>
           <div className="d-flex flex-column footer-links">
             <div className="title-links mb-3">Features</div>
@@ -37,7 +43,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="d-flex justify-content-center paragraph all-rights">
-          All Rights Reserved. Semina Angga 2022.
+          All Rights Reserved. Artistry Agora 2024.
         </div>
       </div>
     </footer>

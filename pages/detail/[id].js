@@ -53,7 +53,7 @@ export default function DetailPage({ detailPage, id }) {
 
       <div className="preview-image bg-navy text-center">
         <img
-          src="/images/details-image.png"
+          src={`${process.env.NEXT_PUBLIC_API}/${detailPage.image.name}`}
           className="img-content"
           alt="Artistry Agora"
         />
@@ -110,14 +110,14 @@ export default function DetailPage({ detailPage, id }) {
             </div>
             <hr />
 
-            <h6>Get Ticket</h6>
+            <h6 className="text-center">Get Ticket</h6>
             {detailPage.tickets.map((ticket) => (
               <div key={ticket._id}>
                 {ticket.statusTicketCategories ? (
                   <>
-                    <div className="">{ticket.type}</div>
+                    <div className="my-4">{ticket.type}</div>
                     <div className="price my-3">
-                      {ticket.price === 0 ? "free" : `$${ticket.price}`}
+                      {ticket.price === 0 ? "free" : `Rp. ${ticket.price}`}
                       <span>/person</span>
                     </div>
                     <div className="d-flex gap-3 align-items-center card-details">
@@ -153,7 +153,7 @@ export default function DetailPage({ detailPage, id }) {
         </div>
       </div>
 
-      <CardEvent data={data} title="Similiar Events" subTitle="Next One" />
+      <CardEvent data={data} title="Pameran Kesenian" subTitle="Events" />
       <Stories />
       <Statistics />
       <Footer />
