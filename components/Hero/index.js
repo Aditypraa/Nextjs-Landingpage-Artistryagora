@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
+import NavLink from "../NavLink";
 
 export default function Hero() {
   return (
@@ -16,9 +17,9 @@ export default function Hero() {
           <br className="d-none d-lg-block" />
           anda dalam meningkatkan kreativitas di bidang seni.
         </p>
-        <a href="#grow-today" className="btn-green">
-          Check Events
-        </a>
+        <NavLink href={"/events"}>
+          <button className="btn-green"> Check Events</button>
+        </NavLink>
       </div>
 
       <div className="d-flex flex-row flex-nowrap justify-content-center align-items-center gap-5 header-image">

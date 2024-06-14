@@ -55,7 +55,12 @@ export default function Navbar() {
             className={`navbar-nav ${
               router.pathname !== "/signin" ? "mx-auto" : "ms-auto"
             } my-3 my-lg-0`}
-          ></div>
+          >
+            <NavLink href={"/"}>Home</NavLink>
+            <NavLink href={"/events"}>Events</NavLink>
+            <NavLink href={"/browse"}>About</NavLink>
+            <NavLink href={"/browse"}>Contact</NavLink>
+          </div>
 
           {router.pathname !== "/signin" && (
             <>
@@ -63,7 +68,7 @@ export default function Navbar() {
                 <div className="navbar-nav ms-auto">
                   <div className="nav-item dropdown d-flex flex-column flex-lg-row align-items-lg-center authenticated gap-3">
                     <span className="text-light d-none d-lg-block">
-                      Hello, {`${username.firstName} ${username.lastName}`}
+                      Hello, {`${username.firstName} ${username.lastName} `}
                     </span>
 
                     <a
@@ -74,7 +79,7 @@ export default function Navbar() {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <img src="/images/avatar.png" alt="semina" width="60" />
+                      <img src="/images/default.png" alt="semina" width="60" />
                     </a>
 
                     <a

@@ -95,7 +95,7 @@ export default function FormSignUp() {
             type={"email"}
             name="email"
             value={form.email}
-            placeholder={"semina@bwa.com"}
+            placeholder={"example@gmail.com"}
             onChange={handleChange}
           />
 
@@ -113,7 +113,7 @@ export default function FormSignUp() {
             type={"text"}
             value={form.role}
             name="role"
-            placeholder="ex: Product Designer"
+            placeholder="ex: Seniman"
             onChange={handleChange}
           />
         </>
