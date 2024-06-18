@@ -23,9 +23,9 @@ export default function Hero() {
       </div>
 
       <div className="d-flex flex-row flex-nowrap justify-content-center align-items-center gap-5 header-image">
-        <img src="/images/1.png" alt="semina" className="img-1" />
-        <img src="/images/2.png" alt="semina" className="img-2" />
-        <img src="/images/1.png" alt="semina" className="img-1" />
+        <img src="/images/arts4.jpg" alt="imagearts" className="img-1" />
+        <img src="/images/arts1.jpg" alt="imagearts" className="img-2" />
+        <img src="/images/arts2.jpg" alt="imagearts" className="img-1" />
       </div>
     </>
   );

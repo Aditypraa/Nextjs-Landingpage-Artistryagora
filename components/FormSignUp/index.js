@@ -22,13 +22,14 @@ export default function FormSignUp() {
   };
 
   const handleSubmit = async () => {
-    if (keyword === "otp") {
-      putData("api/v1/active", {
-        otp: otp,
-        email: form.email,
-      }).then((res) => {
+    try {
+      if (keyword === "otp") {
+        const res = await putData("api/v1/active", {
+          otp: otp,
+          email: form.email,
+        });
         if (res.data) {
-          toast.success("berhasil aktifkan akun", {
+          toast.success("Berhasil mengaktifkan akun", {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -39,11 +40,10 @@ export default function FormSignUp() {
           });
           router.push("/signin");
         }
-      });
-    } else {
-      postData("api/v1/auth/signup", form).then((res) => {
+      } else {
+        const res = await postData("api/v1/auth/signup", form);
         if (res.data) {
-          toast.success("berhasil signup", {
+          toast.success("Silakan Check Email Anda", {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -54,7 +54,18 @@ export default function FormSignUp() {
           });
           router.push({ pathname: "/signup", query: { keyword: "otp" } });
         }
+      }
+    } catch (error) {
+      toast.error(error, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
       });
+      console.error("Error during form submission", error);
     }
   };
 
@@ -62,55 +73,50 @@ export default function FormSignUp() {
     <form className="form-login d-flex flex-column mt-4 mt-md-0">
       {keyword === "otp" ? (
         <TextInput
-          label={"otp"}
-          type={"text"}
+          label="OTP"
+          type="text"
           value={otp}
           name="otp"
-          placeholder="Enter opt here"
-          onChange={(e) => {
-            setOtp(e.target.value);
-          }}
+          placeholder="Enter OTP here"
+          onChange={(e) => setOtp(e.target.value)}
         />
       ) : (
         <>
           <TextInput
-            label={"First Name"}
-            type={"text"}
+            label="First Name"
+            type="text"
             value={form.firstName}
             name="firstName"
             placeholder="First name here"
             onChange={handleChange}
           />
           <TextInput
-            label={"Last Name"}
-            type={"text"}
+            label="Last Name"
+            type="text"
             name="lastName"
             value={form.lastName}
-            placeholder="First name here"
+            placeholder="Last name here"
             onChange={handleChange}
           />
-
           <TextInput
-            label={"Email"}
-            type={"email"}
+            label="Email"
+            type="email"
             name="email"
             value={form.email}
-            placeholder={"example@gmail.com"}
+            placeholder="example@gmail.com"
             onChange={handleChange}
           />
-
           <TextInput
-            label={"Password (6 characters)"}
-            type={"password"}
+            label="Password"
+            type="password"
             value={form.password}
             name="password"
             placeholder="Type your password"
             onChange={handleChange}
           />
-
           <TextInput
-            label={"Role"}
-            type={"text"}
+            label="Role"
+            type="text"
             value={form.role}
             name="role"
             placeholder="ex: Seniman"
@@ -118,10 +124,9 @@ export default function FormSignUp() {
           />
         </>
       )}
-
       <div className="d-grid mt-2">
-        <Button variant={"btn-green"} action={() => handleSubmit()}>
-          {keyword === "code" ? "Verification" : "Sign Up"}
+        <Button variant="btn-green" action={handleSubmit}>
+          {keyword === "otp" ? "Verification" : "Sign Up"}
         </Button>
       </div>
     </form>

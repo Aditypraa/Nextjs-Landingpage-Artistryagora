@@ -40,7 +40,7 @@ export default function CardEvent({ data, title, subTitle }) {
                   <Link
                     href={`/detail/${data._id}`}
                     className="stretched-link"
-                  ></Link>
+                  />
                 </div>
               </div>
             </div>

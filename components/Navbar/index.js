@@ -15,10 +15,12 @@ export default function Navbar() {
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"));
-    setUsername({
-      firstName: data?.firstName,
-      lastName: data?.lastName,
-    });
+    if (data) {
+      setUsername({
+        firstName: data.firstName || "",
+        lastName: data.lastName || "",
+      });
+    }
     setToken(Cookies.get("token"));
   }, []);
 
@@ -58,8 +60,8 @@ export default function Navbar() {
           >
             <NavLink href={"/"}>Home</NavLink>
             <NavLink href={"/events"}>Events</NavLink>
-            <NavLink href={"/browse"}>About</NavLink>
-            <NavLink href={"/browse"}>Contact</NavLink>
+            <NavLink href={"/about"}>About</NavLink>
+            <NavLink href={"/contact"}>Contact</NavLink>
           </div>
 
           {router.pathname !== "/signin" && (
@@ -68,7 +70,7 @@ export default function Navbar() {
                 <div className="navbar-nav ms-auto">
                   <div className="nav-item dropdown d-flex flex-column flex-lg-row align-items-lg-center authenticated gap-3">
                     <span className="text-light d-none d-lg-block">
-                      Hello, {`${username.firstName} ${username.lastName} `}
+                      Hello, {`${username.firstName} ${username.lastName}`}
                     </span>
 
                     <a
@@ -79,7 +81,7 @@ export default function Navbar() {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <img src="/images/default.png" alt="semina" width="60" />
+                      <img src="/images/default.png" alt="Profile" width="60" />
                     </a>
 
                     <a
@@ -90,7 +92,7 @@ export default function Navbar() {
                       aria-expanded="false"
                       aria-controls="collapseExample"
                     >
-                      <img src="/images/avatar.png" alt="semina" width="60" />
+                      <img src="/images/default.png" alt="Profile" width="60" />
                     </a>
 
                     <ul

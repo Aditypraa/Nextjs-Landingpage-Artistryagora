@@ -21,25 +21,25 @@ export default function Footer() {
             seniman di suatu tempat
           </p>
           <div className="d-flex flex-column footer-links">
-            <div className="title-links mb-3">Features</div>
-            <a href="#">Virtual</a>
-            <a href="#">Pricing</a>
-            <a href="#">Merchant</a>
-            <a href="#">Tickets</a>
+            <div className="title-links mb-3">Fitur</div>
+            <a href="#">Pameran Virtual</a>
+            <a href="#">Opsi Pembayaran</a>
+            <a href="#">Toko Artistry Agora</a>
+            <a href="#">Tiket Acara</a>
           </div>
           <div className="d-flex flex-column footer-links">
-            <div className="title-links mb-3">Company</div>
-            <a href="#">Jobs</a>
+            <div className="title-links mb-3">Perusahaan</div>
+            <a href="#">Karir</a>
             <a href="#">API</a>
-            <a href="#">Press</a>
-            <a href="#">Sitemap</a>
+            <a href="#">Berita</a>
+            <a href="#">Peta Situs</a>
           </div>
           <div className="d-flex flex-column footer-links">
-            <div className="title-links mb-3">Learn</div>
-            <a href="#">Guidebook</a>
-            <a href="#">Inspiration</a>
-            <a href="#">Community</a>
-            <a href="#">Tools</a>
+            <div className="title-links mb-3">Sumber Belajar</div>
+            <a href="#">Panduan</a>
+            <a href="#">Inspirasi</a>
+            <a href="#">Komunitas</a>
+            <a href="#">Alat Bantu</a>
           </div>
         </div>
         <div className="d-flex justify-content-center paragraph all-rights">

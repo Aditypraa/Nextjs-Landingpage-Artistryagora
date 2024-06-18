@@ -52,12 +52,12 @@ export default function FormSignin() {
         type={"email"}
         name="email"
         value={form.email}
-        placeholder={"semina@bwa.com"}
+        placeholder={"example@gmail.com"}
         onChange={handleChange}
       />
 
       <TextInput
-        label={"Password (6 characters)"}
+        label={"Password"}
         type={"password"}
         name="password"
         value={form.password}

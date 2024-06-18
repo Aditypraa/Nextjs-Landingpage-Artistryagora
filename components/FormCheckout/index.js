@@ -29,6 +29,7 @@ export default function FormCheckout({ tickets }) {
           {},
           Cookies.get("token")
         );
+        // console.log(res.data);
         res.data.forEach((res) => {
           res.isChecked = false;
         });
@@ -168,7 +169,7 @@ export default function FormCheckout({ tickets }) {
               type="email"
               className="form-control"
               id="email_address"
-              placeholder="semina@bwa.com"
+              placeholder="example@gmail.com"
               name="email"
               value={form.email}
               onChange={handleChange}
@@ -205,8 +206,10 @@ export default function FormCheckout({ tickets }) {
               <label className="payment-radio h-100 d-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-center gap-4">
                   <img
-                    src={`${process.env.NEXT_PUBLIC_API_IMAGE}/${payment.image}`}
+                    src={`${process.env.NEXT_PUBLIC_API}/${payment.image.name}`}
                     alt=""
+                    // width="40"
+                    height="30"
                   />
                   <div>{payment.type}</div>
                 </div>
